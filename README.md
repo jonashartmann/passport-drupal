@@ -62,7 +62,7 @@ application:
 
 ## Credits
 
-This module is developed by [Victor Kareh](http://www.vkareh.net/) and is heavily based on work by [Jared Hanson](http://github.com/jaredhanson)
+This module is developed by [Victor Kareh](http://github.com/vkareh) and is heavily based on work by [Jared Hanson](http://github.com/jaredhanson)
 
 ## License
 
