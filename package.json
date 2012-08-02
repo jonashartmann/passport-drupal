@@ -4,8 +4,8 @@
   "description": "Drupal authentication strategy for Passport.",
   "author": {
     "name": "Victor Kareh",
-    "email": "vkareh@themix.org",
-    "url": "http://www.vkareh.net/"
+    "email": "vkareh@vkareh.net",
+    "url": "http://github.com/vkareh"
   },
   "repository": {
     "type": "git",
