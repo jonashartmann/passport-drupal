@@ -1,0 +1,23 @@
+{
+  "name": "passport-drupal",
+  "version": "0.0.1",
+  "description": "Drupal authentication strategy for Passport.",
+  "author": {
+    "name": "Victor Kareh",
+    "email": "vkareh@themix.org",
+    "url": "http://www.vkareh.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mixmarket/passport-drupal.git"
+  },
+  "main": "./lib/passport-drupal",
+  "dependencies": {
+    "pkginfo": "0.2.x",
+    "passport-oauth": "0.1.x"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "keywords": ["passport", "drupal", "auth", "authn", "authentication", "identity", "oauth"]
+}
