@@ -26,16 +26,12 @@ accepts these credentials and calls `done` providing a user, as well as
     passport.use(new Strategy({
         consumerKey: DRUPAL_CONSUMER_KEY,
         consumerSecret: DRUPAL_CONSUMER_SECRET,
-        requestTokenURL: "http://drupal.example.com/oauth/request_token",
-        accessTokenURL: "http://drupal.example.com/oauth/access_token",
-        userAuthorizationURL: "http://drupal.example.com/oauth/authorize",
-        callbackURL: "http://node.example.com/auth/drupal/callback",
-        resourceURL: "http://drupal.example.com/rest/system/connect"
+        providerURL: "http://drupal.example.com",
+        resourceEndpoint: "oauthlogin/api/user/info" // <---- optional. Defaults to `rest/system/connect`
       },
       function(token, tokenSecret, profile, done) {
-        User.findOrCreate({ uid: profile.id }, function (err, user) {
-          return done(err, user);
-        });
+        profile.oauth = { token: token, token_secret: tokenSecret };
+        done(null, profile);
       }
     ));
 
@@ -73,7 +69,7 @@ app.get('/auth/drupal/login', function(req, res, next) {
   if (req.cookies['my-cookie-key'] && tokens) {
     // If all the data is there, load user profile
     strategy.userProfile(tokens.oauth_token, tokens.oauth_token_secret, {}, function(err, user) {
-      if (err) res.redirect('/auth/drupal');
+      if (err) return res.redirect('/auth/drupal');
       req.session.user = user;
       res.redirect('/');
     });
